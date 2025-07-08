@@ -30,3 +30,4 @@ node_modules/
 # Deployment files (keep these commented out as they're needed)
 # netlify.toml
 # vercel.json
+/.vs

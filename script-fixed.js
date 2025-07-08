@@ -10,10 +10,10 @@ const gameSourceTypes = {
 
 // Games data array
 const gamesData = [
-	{
+    {
         id: 27,
         title: "Original Mario",
-        category: "arcade", 
+        category: "arcade",
         description: "Mario Game",
         thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Cpolygon points='100,50 150,100 100,150 50,100' fill='%2300ffff'/%3E%3Cpolygon points='100,70 130,100 100,130 70,100' fill='%23ff00ff'/%3E%3Cline x1='50' y1='100' x2='150' y2='100' stroke='%23ffff00' stroke-width='3'/%3E%3Cline x1='100' y1='50' x2='100' y2='150' stroke='%23ffff00' stroke-width='3'/%3E%3C/svg%3E",
         gameUrl: "https://dito1988.github.io/FullScreenMario/",
@@ -22,10 +22,10 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'MIT License'
     },
-	{
+    {
         id: 29,
         title: "DuckHunt",
-        category: "arcade", 
+        category: "arcade",
         description: "The classic Duck Hunt game ported to HTML5",
         thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Cpolygon points='100,50 150,100 100,150 50,100' fill='%2300ffff'/%3E%3Cpolygon points='100,70 130,100 100,130 70,100' fill='%23ff00ff'/%3E%3Cline x1='50' y1='100' x2='150' y2='100' stroke='%23ffff00' stroke-width='3'/%3E%3Cline x1='100' y1='50' x2='100' y2='150' stroke='%23ffff00' stroke-width='3'/%3E%3C/svg%3E",
         gameUrl: "https://duckhuntjs.com/",
@@ -34,10 +34,10 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'MIT License'
     },
-	{
+    {
         id: 28,
         title: "Drakonas",
-        category: "arcade", 
+        category: "arcade",
         description: "Game Shooter in 3D",
         thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Cpolygon points='100,50 150,100 100,150 50,100' fill='%2300ffff'/%3E%3Cpolygon points='100,70 130,100 100,130 70,100' fill='%23ff00ff'/%3E%3Cline x1='50' y1='100' x2='150' y2='100' stroke='%23ffff00' stroke-width='3'/%3E%3Cline x1='100' y1='50' x2='100' y2='150' stroke='%23ffff00' stroke-width='3'/%3E%3C/svg%3E",
         gameUrl: "https://dito1988.github.io/Drakonas/",
@@ -46,7 +46,7 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'MIT License'
     },
-	{
+    {
         id: 43,
         title: "Minecraft Classic",
         category: "strategy",
@@ -58,67 +58,67 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'Free Play'
     },
-	{
-		"id": 80,
-		"title": "Wordle",
-		"category": "word",
-		"description": "Guess the 5-letter word in 6 tries",
-		"thumbnail": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjMwIiB5PSI2MCIgd2lkdGg9IjI1IiBoZWlnaHQ9IjI1IiBmaWxsPSIjNmFhYTY0IiBzdHJva2U9IiNkM2QzZDMiLz48cmVjdCB4PSI2MCIgeT0iNjAiIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgZmlsbD0iI2M5YjQ1OCIgc3Ryb2tlPSIjZDNkM2QzIi8+PHJlY3QgeD0iOTAiIHk9IjYwIiB3aWR0aD0iMjUiIGhlaWdodD0iMjUiIGZpbGw9IiM3ODdhODMiIHN0cm9rZT0iI2QzZDNkMyIvPjxyZWN0IHg9IjEyMCIgeT0iNjAiIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgZmlsbD0iIzZhYWE2NCIgc3Ryb2tlPSIjZDNkM2QzIi8+PHJlY3QgeD0iMTUwIiB5PSI2MCIgd2lkdGg9IjI1IiBoZWlnaHQ9IjI1IiBmaWxsPSIjNmFhYTY0IiBzdHJva2U9IiNkM2QzZDMiLz48dGV4dCB4PSI0MiIgeT0iNzciIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiPkg8L3RleHQ+PHRleHQgeD0iNzIiIHk9Ijc3IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5FPC90ZXh0Pjx0ZXh0IHg9IjEwMiIgeT0iNzciIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiPkw8L3RleHQ+PHRleHQgeD0iMTMyIiB5PSI3NyIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZiI+TDwvdGV4dD48dGV4dCB4PSIxNjIiIHk9Ijc3IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5PPC90ZXh0Pjwvc3ZnPg==",
-		"gameUrl": "https://wordlegame.org/",
-		"rating": 4.8,
-		"plays": 600000,
-		"sourceType": "external_iframe",
-		"license": "MIT License"
-	},
-	{
-		"id": 81,
-		"title": "Checkers",
-		"category": "strategy",
-		"description": "Classic board game of strategy",
-		"thumbnail": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iY2hlY2tlcmJvYXJkIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iI2Y0ZjNkMCIvPjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjZjRmM2QwIi8+PHJlY3QgeD0iMjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iIzc0NTMzNiIvPjxyZWN0IHg9IjAiIHk9IjIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9IiM3NDUzMzYiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ1cmwoI2NoZWNrZXJib2FyZCkiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjcwIiByPSIxNSIgZmlsbD0iI2ZmMCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSI3MCIgcj0iMTUiIGZpbGw9IiNmZjAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PGNpcmNsZSBjeD0iNzAiIGN5PSIxNTAiIHI9IjE1IiBmaWxsPSIjODAwIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjE1MCIgcj0iMTUiIGZpbGw9IiM4MDAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+",
-		"gameUrl": "https://www.247checkers.com/",
-		"rating": 4.8,
-		"plays": 160000,
-		"sourceType": "external_iframe",
-		"license": "MIT License"
-	},
-	{
-		"id": 82,
-		"title": "Battleship",
-		"category": "strategy",
-		"description": "Sink your opponent's fleet",
-		"thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPjPAAABAgABYmYM3QAAAABJRU5ErkJggg==",
-		"gameUrl": "https://www.battleshiponline.org/",
-		"rating": 4.8,
-		"plays": 130000,
-		"sourceType": "external_iframe",
-		"license": "MIT License"
-	},
-	{
-		"id": 83,
-		"title": "Risk",
-		"category": "strategy",
-		"description": "Conquer the world in this strategy game",
-		"thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M/wHwAEhAJgYpQKNQAAAABJRU5ErkJggg==",
-		"gameUrl": "https://www.warzone.com/",
-		"rating": 4.8,
-		"plays": 95000,
-		"sourceType": "external_iframe",
-		"license": "MIT License"
-	},
-	{
-		"id": 84,
-		"title": "Hangman",
-		"category": "word",
-		"description": "Guess the word before the drawing is complete",
-		"thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYGBgYAAABQABDQottAAAAABJRU5ErkJggg==",
-		"gameUrl": "https://www.hangmanwords.com/play",
-		"rating": 4.7,
-		"plays": 140000,
-		"sourceType": "external_iframe",
-		"license": "MIT License"
-	},
-	{
+    {
+        "id": 80,
+        "title": "Wordle",
+        "category": "word",
+        "description": "Guess the 5-letter word in 6 tries",
+        "thumbnail": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjMwIiB5PSI2MCIgd2lkdGg9IjI1IiBoZWlnaHQ9IjI1IiBmaWxsPSIjNmFhYTY0IiBzdHJva2U9IiNkM2QzZDMiLz48cmVjdCB4PSI2MCIgeT0iNjAiIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgZmlsbD0iI2M5YjQ1OCIgc3Ryb2tlPSIjZDNkM2QzIi8+PHJlY3QgeD0iOTAiIHk9IjYwIiB3aWR0aD0iMjUiIGhlaWdodD0iMjUiIGZpbGw9IiM3ODdhODMiIHN0cm9rZT0iI2QzZDNkMyIvPjxyZWN0IHg9IjEyMCIgeT0iNjAiIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgZmlsbD0iIzZhYWE2NCIgc3Ryb2tlPSIjZDNkM2QzIi8+PHJlY3QgeD0iMTUwIiB5PSI2MCIgd2lkdGg9IjI1IiBoZWlnaHQ9IjI1IiBmaWxsPSIjNmFhYTY0IiBzdHJva2U9IiNkM2QzZDMiLz48dGV4dCB4PSI0MiIgeT0iNzciIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiPkg8L3RleHQ+PHRleHQgeD0iNzIiIHk9Ijc3IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5FPC90ZXh0Pjx0ZXh0IHg9IjEwMiIgeT0iNzciIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiPkw8L3RleHQ+PHRleHQgeD0iMTMyIiB5PSI3NyIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZiI+TDwvdGV4dD48dGV4dCB4PSIxNjIiIHk9Ijc3IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5PPC90ZXh0Pjwvc3ZnPg==",
+        "gameUrl": "https://wordlegame.org/",
+        "rating": 4.8,
+        "plays": 600000,
+        "sourceType": "external_iframe",
+        "license": "MIT License"
+    },
+    {
+        "id": 81,
+        "title": "Checkers",
+        "category": "strategy",
+        "description": "Classic board game of strategy",
+        "thumbnail": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iY2hlY2tlcmJvYXJkIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iI2Y0ZjNkMCIvPjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjZjRmM2QwIi8+PHJlY3QgeD0iMjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iIzc0NTMzNiIvPjxyZWN0IHg9IjAiIHk9IjIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9IiM3NDUzMzYiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ1cmwoI2NoZWNrZXJib2FyZCkiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjcwIiByPSIxNSIgZmlsbD0iI2ZmMCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSI3MCIgcj0iMTUiIGZpbGw9IiNmZjAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PGNpcmNsZSBjeD0iNzAiIGN5PSIxNTAiIHI9IjE1IiBmaWxsPSIjODAwIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjE1MCIgcj0iMTUiIGZpbGw9IiM4MDAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+",
+        "gameUrl": "https://www.247checkers.com/",
+        "rating": 4.8,
+        "plays": 160000,
+        "sourceType": "external_iframe",
+        "license": "MIT License"
+    },
+    {
+        "id": 82,
+        "title": "Battleship",
+        "category": "strategy",
+        "description": "Sink your opponent's fleet",
+        "thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPjPAAABAgABYmYM3QAAAABJRU5ErkJggg==",
+        "gameUrl": "https://www.battleshiponline.org/",
+        "rating": 4.8,
+        "plays": 130000,
+        "sourceType": "external_iframe",
+        "license": "MIT License"
+    },
+    {
+        "id": 83,
+        "title": "Risk",
+        "category": "strategy",
+        "description": "Conquer the world in this strategy game",
+        "thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M/wHwAEhAJgYpQKNQAAAABJRU5ErkJggg==",
+        "gameUrl": "https://www.warzone.com/",
+        "rating": 4.8,
+        "plays": 95000,
+        "sourceType": "external_iframe",
+        "license": "MIT License"
+    },
+    {
+        "id": 84,
+        "title": "Hangman",
+        "category": "word",
+        "description": "Guess the word before the drawing is complete",
+        "thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYGBgYAAABQABDQottAAAAABJRU5ErkJggg==",
+        "gameUrl": "https://www.hangmanwords.com/play",
+        "rating": 4.7,
+        "plays": 140000,
+        "sourceType": "external_iframe",
+        "license": "MIT License"
+    },
+    {
         id: 17,
         title: "Pac-Man HTML5",
         category: "arcade",
@@ -142,7 +142,7 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'Free Play'
     },
-	{
+    {
         id: 70,
         title: "Little Alchemy 2",
         category: "puzzle",
@@ -153,10 +153,10 @@ const gamesData = [
         plays: 2800000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 14,
         title: "HexGL Racing",
-        category: "racing", 
+        category: "racing",
         description: "Futuristic WebGL racing game, MIT licensed open source project",
         thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Cpolygon points='100,50 150,100 100,150 50,100' fill='%2300ffff'/%3E%3Cpolygon points='100,70 130,100 100,130 70,100' fill='%23ff00ff'/%3E%3Cline x1='50' y1='100' x2='150' y2='100' stroke='%23ffff00' stroke-width='3'/%3E%3Cline x1='100' y1='50' x2='100' y2='150' stroke='%23ffff00' stroke-width='3'/%3E%3C/svg%3E",
         gameUrl: "https://hexgl.bkcore.com/",
@@ -165,7 +165,7 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'MIT License'
     },
-	{
+    {
         id: 32,
         title: "Slither.io",
         category: "arcade",
@@ -177,7 +177,7 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'Free Play'
     },
-	{
+    {
         id: 48,
         title: "1v1.LOL",
         category: "action",
@@ -188,10 +188,10 @@ const gamesData = [
         plays: 4500000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 13,
         title: "Slot Car Racing",
-        category: "racing", 
+        category: "racing",
         description: "Car racing game, MIT licensed open source project",
         thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Cpolygon points='100,50 150,100 100,150 50,100' fill='%2300ffff'/%3E%3Cpolygon points='100,70 130,100 100,130 70,100' fill='%23ff00ff'/%3E%3Cline x1='50' y1='100' x2='150' y2='100' stroke='%23ffff00' stroke-width='3'/%3E%3Cline x1='100' y1='50' x2='100' y2='150' stroke='%23ffff00' stroke-width='3'/%3E%3C/svg%3E",
         gameUrl: "https://bruno-simon.com/",
@@ -200,7 +200,7 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'MIT License'
     },
-	{
+    {
         id: 16,
         title: "Hextris",
         category: "puzzle",
@@ -212,7 +212,7 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'Apache 2.0'
     },
-	{
+    {
         id: 42,
         title: "Krunker.io",
         category: "action",
@@ -224,7 +224,7 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'Free Play'
     },
-	{
+    {
         id: 50,
         title: "Diep.io",
         category: "action",
@@ -235,7 +235,7 @@ const gamesData = [
         plays: 1900000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 66,
         title: "Skribbl.io",
         category: "puzzle",
@@ -246,7 +246,7 @@ const gamesData = [
         plays: 1500000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 24,
         title: "Sudoku Web",
         category: "puzzle",
@@ -258,7 +258,7 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'Free Play'
     },
-	{
+    {
         id: 15,
         title: "Clumsy Bird",
         category: "arcade",
@@ -270,7 +270,7 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'MIT License'
     },
-	{
+    {
         id: 62,
         title: "Worms.Zone",
         category: "arcade",
@@ -281,7 +281,7 @@ const gamesData = [
         plays: 1300000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 53,
         title: "Wings.io",
         category: "action",
@@ -292,7 +292,7 @@ const gamesData = [
         plays: 950000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 58,
         title: "Lordz.io",
         category: "strategy",
@@ -303,7 +303,7 @@ const gamesData = [
         plays: 890000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 65,
         title: "BuildRoyale.io",
         category: "action",
@@ -314,7 +314,7 @@ const gamesData = [
         plays: 1100000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 40,
         title: "Bubble Shooter",
         category: "puzzle",
@@ -326,7 +326,7 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'Free Play'
     },
-	{
+    {
         id: 52,
         title: "Mope.io",
         category: "arcade",
@@ -337,7 +337,7 @@ const gamesData = [
         plays: 1300000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 54,
         title: "Deeeep.io",
         category: "arcade",
@@ -348,7 +348,7 @@ const gamesData = [
         plays: 1050000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 56,
         title: "Stabfish.io",
         category: "action",
@@ -359,7 +359,7 @@ const gamesData = [
         plays: 720000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 63,
         title: "Stabfish2.io",
         category: "action",
@@ -370,7 +370,7 @@ const gamesData = [
         plays: 750000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 64,
         title: "Yohoho.io",
         category: "action",
@@ -381,7 +381,7 @@ const gamesData = [
         plays: 820000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 59,
         title: "Zlap.io",
         category: "action",
@@ -392,7 +392,7 @@ const gamesData = [
         plays: 590000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 60,
         title: "Venge.io",
         category: "action",
@@ -403,7 +403,7 @@ const gamesData = [
         plays: 850000,
         sourceType: gameSourceTypes.EXTERNAL_IFRAME
     },
-	{
+    {
         id: 61,
         title: "Kirka.io",
         category: "action",
@@ -433,16 +433,6 @@ const gamesData = [
         gameUrl: "games/tetris.html",
         rating: 4.7,
         plays: 23150
-    },
-    {
-        id: 4,
-        title: "Neon Asteroids",
-        category: "action",
-        description: "Space shooter with vector graphics and neon effects",
-        thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Cpolygon points='100,80 110,100 100,120 90,100' fill='%2300ffff'/%3E%3Cpolygon points='60,60 80,50 90,70 70,80' fill='%23ff00ff'/%3E%3Cpolygon points='140,140 160,130 170,150 150,160' fill='%23ffff00'/%3E%3C/svg%3E",
-        gameUrl: "games/asteroids.html",
-        rating: 4.6,
-        plays: 12750
     },
     {
         id: 5,
@@ -494,10 +484,10 @@ const gamesData = [
         rating: 4.4,
         plays: 31200
     },
-	{
+    {
         id: 25,
         title: "Games",
-        category: "arcade", 
+        category: "arcade",
         description: "Games",
         thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Cpolygon points='100,50 150,100 100,150 50,100' fill='%2300ffff'/%3E%3Cpolygon points='100,70 130,100 100,130 70,100' fill='%23ff00ff'/%3E%3Cline x1='50' y1='100' x2='150' y2='100' stroke='%23ffff00' stroke-width='3'/%3E%3Cline x1='100' y1='50' x2='100' y2='150' stroke='%23ffff00' stroke-width='3'/%3E%3C/svg%3E",
         gameUrl: "https://dito1988.github.io/games/",
@@ -506,10 +496,10 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'MIT License'
     },
-	{
+    {
         id: 26,
         title: "Crazy Racing",
-        category: "Car Racing Game", 
+        category: "Car Racing Game",
         description: "Crazy Racing",
         thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Cpolygon points='100,50 150,100 100,150 50,100' fill='%2300ffff'/%3E%3Cpolygon points='100,70 130,100 100,130 70,100' fill='%23ff00ff'/%3E%3Cline x1='50' y1='100' x2='150' y2='100' stroke='%23ffff00' stroke-width='3'/%3E%3Cline x1='100' y1='50' x2='100' y2='150' stroke='%23ffff00' stroke-width='3'/%3E%3C/svg%3E",
         gameUrl: "https://dito1988.github.io/crazy_racing/",
@@ -518,10 +508,10 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'MIT License'
     },
-	{
+    {
         id: 30,
         title: "Galaga Rebubbled",
-        category: "arcade", 
+        category: "arcade",
         description: "Galaga rebubbled",
         thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Cpolygon points='100,50 150,100 100,150 50,100' fill='%2300ffff'/%3E%3Cpolygon points='100,70 130,100 100,130 70,100' fill='%23ff00ff'/%3E%3Cline x1='50' y1='100' x2='150' y2='100' stroke='%23ffff00' stroke-width='3'/%3E%3Cline x1='100' y1='50' x2='100' y2='150' stroke='%23ffff00' stroke-width='3'/%3E%3C/svg%3E",
         gameUrl: "https://dito1988.github.io/Galaga-Rebubbled",
@@ -530,10 +520,10 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'MIT License'
     },
-	{
+    {
         id: 31,
         title: "Dead valley!",
-        category: "arcade", 
+        category: "arcade",
         description: "HTML5 Grand Theft Auto style Zombie Survival Game",
         thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Cpolygon points='100,50 150,100 100,150 50,100' fill='%2300ffff'/%3E%3Cpolygon points='100,70 130,100 100,130 70,100' fill='%23ff00ff'/%3E%3Cline x1='50' y1='100' x2='150' y2='100' stroke='%23ffff00' stroke-width='3'/%3E%3Cline x1='100' y1='50' x2='100' y2='150' stroke='%23ffff00' stroke-width='3'/%3E%3C/svg%3E",
         gameUrl: "https://dito1988.github.io/dead-valley/",
@@ -542,10 +532,10 @@ const gamesData = [
         sourceType: 'external_iframe',
         license: 'MIT License'
     },
-	{
+    {
         id: 12,
         title: "Snake Game",
-        category: "arcade", 
+        category: "arcade",
         description: "Snake game",
         thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Cpolygon points='100,50 150,100 100,150 50,100' fill='%2300ffff'/%3E%3Cpolygon points='100,70 130,100 100,130 70,100' fill='%23ff00ff'/%3E%3Cline x1='50' y1='100' x2='150' y2='100' stroke='%23ffff00' stroke-width='3'/%3E%3Cline x1='100' y1='50' x2='100' y2='150' stroke='%23ffff00' stroke-width='3'/%3E%3C/svg%3E",
         gameUrl: "https://dito1988.github.io/javascript-snakes/",
@@ -573,19 +563,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initializeNavigation() {
     console.log('Initializing navigation system...');
-    
+
     // Render games
     renderGames();
-    
+
     // Setup all event listeners
     setupNavigation();
-    
+
     console.log('Navigation system initialized successfully');
 }
 
 function renderGames() {
     console.log('Rendering games...');
-    
+
     const gamesGrid = document.getElementById('gamesGrid');
     if (!gamesGrid) {
         console.error('Games grid not found!');
@@ -593,8 +583,8 @@ function renderGames() {
     }
 
     // Filter games
-    const filteredGames = currentFilter === 'all' 
-        ? gamesData 
+    const filteredGames = currentFilter === 'all'
+        ? gamesData
         : gamesData.filter(game => game.category === currentFilter);
 
     console.log(`Showing ${filteredGames.length} games for filter: ${currentFilter}`);
@@ -616,14 +606,14 @@ function renderGames() {
 
     // Update pagination
     updatePagination(filteredGames.length);
-    
+
     console.log(`Rendered ${gamesToShow.length} games on page ${currentPage}`);
 }
 
 function createGameCard(game) {
     const card = document.createElement('div');
     card.className = 'game-card';
-    
+
     card.innerHTML = `
         <div class="game-thumbnail">
             <img src="${game.thumbnail}" alt="${game.title}" loading="lazy">
@@ -653,7 +643,7 @@ function generateStars(rating) {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.5;
     let stars = '';
-    
+
     for (let i = 0; i < fullStars; i++) {
         stars += '★';
     }
@@ -679,12 +669,12 @@ function openGame(game) {
     const gameModal = document.getElementById('gameModal');
     const gameTitle = document.getElementById('gameTitle');
     const gameFrame = document.getElementById('gameFrame');
-    
+
     if (!gameModal || !gameTitle || !gameFrame) {
         console.error('Game modal elements not found');
         return;
     }
-    
+
     gameTitle.textContent = game.title;
 
     // Create iframe
@@ -702,17 +692,17 @@ function openGame(game) {
 
     // Show modal
     gameModal.style.display = 'block';
-    
+
     console.log(`Opened game: ${game.title}`);
 }
 
 function closeGame() {
     const gameModal = document.getElementById('gameModal');
     const gameFrame = document.getElementById('gameFrame');
-    
+
     if (gameModal) gameModal.style.display = 'none';
     if (gameFrame) gameFrame.innerHTML = '';
-    
+
     console.log('Game closed');
 }
 
@@ -731,27 +721,27 @@ function toggleFullscreen() {
 
 function setupNavigation() {
     console.log('Setting up navigation...');
-    
+
     // Category filtering
     const categoryCards = document.querySelectorAll('.category-card');
     console.log(`Found ${categoryCards.length} category cards`);
-    
+
     categoryCards.forEach(card => {
         card.addEventListener('click', () => {
             const category = card.dataset.category;
             console.log(`Category clicked: ${category}`);
-            
+
             if (category) {
                 currentFilter = category;
                 currentPage = 1;
-                
+
                 // Update active state
                 categoryCards.forEach(c => c.classList.remove('active'));
                 card.classList.add('active');
-                
+
                 // Re-render games
                 renderGames();
-                
+
                 // Scroll to games
                 scrollToGames();
             }
@@ -761,10 +751,10 @@ function setupNavigation() {
     // Mobile menu
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
-    
+
     if (hamburger && navMenu) {
         console.log('Setting up mobile menu...');
-        
+
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
@@ -812,26 +802,26 @@ function setupNavigation() {
         display: block;
         transition: transform 0.3s ease;
     `;
-    
+
     showAllBtn.addEventListener('click', () => {
         currentFilter = 'all';
         currentPage = 1;
-        
+
         // Remove active state from all category cards
         categoryCards.forEach(c => c.classList.remove('active'));
-        
+
         renderGames();
         scrollToGames();
-        
+
         console.log('Showing all games');
     });
-    
+
     // Add show all button to categories section
     const categoriesSection = document.querySelector('.categories-section .container');
     if (categoriesSection) {
         categoriesSection.appendChild(showAllBtn);
     }
-    
+
     console.log('Navigation setup complete');
 }
 
@@ -840,7 +830,7 @@ function updatePagination(totalGames) {
     if (!paginationContainer) return;
 
     const totalPages = Math.ceil(totalGames / gamesPerPage);
-    
+
     if (totalPages <= 1) {
         paginationContainer.innerHTML = '';
         return;
@@ -862,11 +852,11 @@ function updatePagination(totalGames) {
 }
 
 function changePage(page) {
-    const filteredGames = currentFilter === 'all' 
-        ? gamesData 
+    const filteredGames = currentFilter === 'all'
+        ? gamesData
         : gamesData.filter(game => game.category === currentFilter);
     const totalPages = Math.ceil(filteredGames.length / gamesPerPage);
-    
+
     if (page >= 1 && page <= totalPages) {
         currentPage = page;
         renderGames();
