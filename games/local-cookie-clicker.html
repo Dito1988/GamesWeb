@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Clicker Clone - FlashBack Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .game-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+        }
+        
+        .main-area {
+            text-align: center;
+        }
+        
+        h1 {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+            margin-bottom: 20px;
+        }
+        
+        .cookie-container {
+            margin: 20px 0;
+        }
+        
+        .cookie {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #deb887 0%, #cd853f 100%);
+            border-radius: 50%;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: transform 0.1s;
+            position: relative;
+            box-shadow: 0 0 20px rgba(222, 184, 135, 0.5);
+        }
+        
+        .cookie:hover {
+            transform: scale(1.05);
+        }
+        
+        .cookie:active {
+            transform: scale(0.95);
+        }
+        
+        .cookie::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #654321;
+            border-radius: 50%;
+            top: 30px;
+            left: 50px;
+        }
+        
+        .cookie::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #654321;
+            border-radius: 50%;
+            top: 80px;
+            right: 60px;
+        }
+        
+        .chip {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #654321;
+            border-radius: 50%;
+        }
+        
+        .chip1 { top: 120px; left: 70px; }
+        .chip2 { top: 60px; right: 40px; }
+        .chip3 { bottom: 50px; left: 80px; }
+        .chip4 { bottom: 80px; right: 50px; }
+        
+        .stats {
+            margin: 20px 0;
+        }
+        
+        .stat {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        
+        .cookies-count {
+            font-size: 24px;
+            color: #ffff00;
+            text-shadow: 0 0 5px #ffff00;
+        }
+        
+        .shop {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #00ffff;
+        }
+        
+        .shop h2 {
+            color: #ff00ff;
+            text-shadow: 0 0 5px #ff00ff;
+            margin-bottom: 15px;
+        }
+        
+        .upgrade {
+            background: rgba(0, 0, 0, 0.5);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .upgrade:hover {
+            border-color: #00ffff;
+            background: rgba(0, 255, 255, 0.1);
+        }
+        
+        .upgrade.affordable {
+            border-color: #00ff00;
+        }
+        
+        .upgrade.affordable:hover {
+            background: rgba(0, 255, 0, 0.1);
+        }
+        
+        .upgrade-name {
+            font-weight: bold;
+            color: #00ffff;
+        }
+        
+        .upgrade-cost {
+            color: #ffff00;
+            font-size: 14px;
+        }
+        
+        .upgrade-owned {
+            color: #ccc;
+            font-size: 12px;
+        }
+        
+        .click-effect {
+            position: absolute;
+            color: #ffff00;
+            font-weight: bold;
+            pointer-events: none;
+            animation: floatUp 1s ease-out forwards;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .game-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="main-area">
+            <h1>Cookie Clicker Clone</h1>
+            
+            <div class="stats">
+                <div class="stat cookies-count" id="cookies-display">0 cookies</div>
+                <div class="stat">Cookies per second: <span id="cps-display">0</span></div>
+                <div class="stat">Total cookies baked: <span id="total-display">0</span></div>
+            </div>
+            
+            <div class="cookie-container">
+                <div class="cookie" id="cookie" onclick="clickCookie()">
+                    <div class="chip chip1"></div>
+                    <div class="chip chip2"></div>
+                    <div class="chip chip3"></div>
+                    <div class="chip chip4"></div>
+                </div>
+            </div>
+            
+            <div class="stat">Click the cookie to start baking!</div>
+        </div>
+        
+        <div class="shop">
+            <h2>Shop</h2>
+            <div id="upgrades-container"></div>
+        </div>
+    </div>
+
+    <script>
+        let cookies = 0;
+        let cookiesPerSecond = 0;
+        let totalCookies = 0;
+        let clickPower = 1;
+
+        const upgrades = [
+            {
+                name: "Cursor",
+                baseCost: 15,
+                cps: 0.1,
+                owned: 0,
+                description: "Autoclicks once every 10 seconds"
+            },
+            {
+                name: "Grandma",
+                baseCost: 100,
+                cps: 1,
+                owned: 0,
+                description: "A nice grandma to bake more cookies"
+            },
+            {
+                name: "Farm",
+                baseCost: 1100,
+                cps: 8,
+                owned: 0,
+                description: "Grows cookie plants"
+            },
+            {
+                name: "Mine",
+                baseCost: 12000,
+                cps: 47,
+                owned: 0,
+                description: "Mines out cookie dough"
+            },
+            {
+                name: "Factory",
+                baseCost: 130000,
+                cps: 260,
+                owned: 0,
+                description: "Produces large quantities of cookies"
+            },
+            {
+                name: "Bank",
+                baseCost: 1400000,
+                cps: 1400,
+                owned: 0,
+                description: "Generates cookies from interest"
+            }
+        ];
+
+        function updateDisplay() {
+            document.getElementById('cookies-display').textContent = formatNumber(Math.floor(cookies)) + ' cookies';
+            document.getElementById('cps-display').textContent = formatNumber(cookiesPerSecond);
+            document.getElementById('total-display').textContent = formatNumber(totalCookies);
+        }
+
+        function formatNumber(num) {
+            if (num >= 1000000000) {
+                return (num / 1000000000).toFixed(1) + 'B';
+            } else if (num >= 1000000) {
+                return (num / 1000000).toFixed(1) + 'M';
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K';
+            }
+            return num.toString();
+        }
+
+        function clickCookie() {
+            cookies += clickPower;
+            totalCookies += clickPower;
+            
+            // Create click effect
+            const effect = document.createElement('div');
+            effect.className = 'click-effect';
+            effect.textContent = '+' + clickPower;
+            effect.style.left = (Math.random() * 100 + 150) + 'px';
+            effect.style.top = (Math.random() * 100 + 200) + 'px';
+            document.querySelector('.cookie-container').appendChild(effect);
+            
+            setTimeout(() => effect.remove(), 1000);
+            
+            updateDisplay();
+            updateShop();
+        }
+
+        function buyUpgrade(index) {
+            const upgrade = upgrades[index];
+            const cost = Math.floor(upgrade.baseCost * Math.pow(1.15, upgrade.owned));
+            
+            if (cookies >= cost) {
+                cookies -= cost;
+                upgrade.owned++;
+                cookiesPerSecond += upgrade.cps;
+                updateDisplay();
+                updateShop();
+                
+                // Save game
+                saveGame();
+            }
+        }
+
+        function updateShop() {
+            const container = document.getElementById('upgrades-container');
+            container.innerHTML = '';
+            
+            upgrades.forEach((upgrade, index) => {
+                const cost = Math.floor(upgrade.baseCost * Math.pow(1.15, upgrade.owned));
+                const canAfford = cookies >= cost;
+                
+                const upgradeDiv = document.createElement('div');
+                upgradeDiv.className = 'upgrade' + (canAfford ? ' affordable' : '');
+                upgradeDiv.onclick = () => buyUpgrade(index);
+                
+                upgradeDiv.innerHTML = `
+                    <div class="upgrade-name">${upgrade.name}</div>
+                    <div class="upgrade-cost">Cost: ${formatNumber(cost)} cookies</div>
+                    <div class="upgrade-owned">Owned: ${upgrade.owned}</div>
+                    <div style="font-size: 12px; color: #ccc;">${upgrade.description}</div>
+                `;
+                
+                container.appendChild(upgradeDiv);
+            });
+        }
+
+        function gameLoop() {
+            cookies += cookiesPerSecond / 10; // 10 times per second
+            updateDisplay();
+        }
+
+        function saveGame() {
+            const gameData = {
+                cookies: cookies,
+                totalCookies: totalCookies,
+                upgrades: upgrades,
+                cookiesPerSecond: cookiesPerSecond
+            };
+            localStorage.setItem('cookieClickerSave', JSON.stringify(gameData));
+        }
+
+        function loadGame() {
+            const saved = localStorage.getItem('cookieClickerSave');
+            if (saved) {
+                const gameData = JSON.parse(saved);
+                cookies = gameData.cookies || 0;
+                totalCookies = gameData.totalCookies || 0;
+                cookiesPerSecond = gameData.cookiesPerSecond || 0;
+                
+                if (gameData.upgrades) {
+                    gameData.upgrades.forEach((savedUpgrade, index) => {
+                        if (upgrades[index]) {
+                            upgrades[index].owned = savedUpgrade.owned || 0;
+                        }
+                    });
+                }
+            }
+        }
+
+        // Auto-save every 30 seconds
+        setInterval(saveGame, 30000);
+
+        // Initialize game
+        loadGame();
+        updateDisplay();
+        updateShop();
+        setInterval(gameLoop, 100); // 10 FPS
+    </script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Embed Template - FlashBack Games</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            color: #fff;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+        }
+        
+        h1 {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .embed-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .embed-title {
+            color: #00ffff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .embed-frame {
+            width: 100%;
+            height: 500px;
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            font-size: 18px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .embed-placeholder {
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .embed-code {
+            background: #000;
+            border: 1px solid #00ffff;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            color: #00ffff;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        
+        .warning {
+            background: rgba(255, 255, 0, 0.1);
+            border: 1px solid #ffff00;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: #ffff00;
+        }
+        
+        .legal-notice {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid #ff0000;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: #ff0000;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .game-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .game-card h3 {
+            color: #00ffff;
+            margin-bottom: 10px;
+        }
+        
+        .game-card p {
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Game Embed Template & Guidelines</h1>
+        
+        <div class="legal-notice">
+            <strong>⚠️ IMPORTANT LEGAL NOTICE:</strong><br>
+            Embedding games from external sites without permission may violate:
+            <ul>
+                <li>Copyright laws</li>
+                <li>Terms of Service</li>
+                <li>DMCA regulations</li>
+                <li>International IP laws</li>
+            </ul>
+            Always get explicit permission before embedding external content.
+        </div>
+
+        <div class="embed-section">
+            <h2 class="embed-title">🔧 How to Legally Embed Games</h2>
+            
+            <h3 style="color: #ffff00;">1. Official Embed Codes (RECOMMENDED)</h3>
+            <p style="color: #ccc;">Many platforms provide official embed codes. Always use these when available:</p>
+            <div class="embed-code">
+&lt;!-- Example: Official embed code from a platform --&gt;
+&lt;iframe src="https://platform.com/embed/game-id" 
+        width="800" 
+        height="600" 
+        frameborder="0" 
+        allowfullscreen&gt;
+&lt;/iframe&gt;
+            </div>
+            
+            <h3 style="color: #ffff00;">2. API Integration</h3>
+            <p style="color: #ccc;">Use official APIs when available:</p>
+            <div class="embed-code">
+&lt;!-- Example: Using official API --&gt;
+&lt;script src="https://platform.com/api/embed.js"&gt;&lt;/script&gt;
+&lt;div id="game-container" data-game-id="12345"&gt;&lt;/div&gt;
+&lt;script&gt;
+    PlatformAPI.embed('game-container', {
+        gameId: '12345',
+        width: 800,
+        height: 600
+    });
+&lt;/script&gt;
+            </div>
+            
+            <h3 style="color: #ffff00;">3. Licensed Content</h3>
+            <p style="color: #ccc;">Purchase or license games legally:</p>
+            <div class="embed-code">
+&lt;!-- Example: Your own licensed game --&gt;
+&lt;iframe src="games/licensed-game.html" 
+        width="800" 
+        height="600" 
+        frameborder="0"&gt;
+&lt;/iframe&gt;
+            </div>
+        </div>
+
+        <div class="embed-section">
+            <h2 class="embed-title">🎯 Legal Game Sources for Embedding</h2>
+            
+            <div class="game-grid">
+                <div class="game-card">
+                    <h3>Itch.io</h3>
+                    <p>Many developers allow embedding. Look for embed options on game pages.</p>
+                    <button class="btn" onclick="window.open('https://itch.io/games/html5', '_blank')">Browse HTML5 Games</button>
+                </div>
+                
+                <div class="game-card">
+                    <h3>Newgrounds</h3>
+                    <p>Some games have embed codes available with proper attribution.</p>
+                    <button class="btn" onclick="window.open('https://www.newgrounds.com/games', '_blank')">Browse Games</button>
+                </div>
+                
+                <div class="game-card">
+                    <h3>GitHub</h3>
+                    <p>Open source games that you can legally host and embed.</p>
+                    <button class="btn" onclick="window.open('https://github.com/topics/html5-game', '_blank')">Browse Open Source</button>
+                </div>
+                
+                <div class="game-card">
+                    <h3>Educational Platforms</h3>
+                    <p>Many educational games allow embedding for non-commercial use.</p>
+                    <button class="btn" onclick="window.open('https://scratch.mit.edu/explore/projects/games/', '_blank')">Browse Educational</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="embed-section">
+            <h2 class="embed-title">🛠️ Embed Template Generator</h2>
+            <p style="color: #ccc;">Use this template for games you have permission to embed:</p>
+            
+            <div style="margin: 20px 0;">
+                <label style="color: #00ffff; display: block; margin-bottom: 5px;">Game URL:</label>
+                <input type="text" id="gameUrl" placeholder="Enter game URL (only if you have permission)" 
+                       style="width: 100%; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid #00ffff; color: #fff; border-radius: 5px;">
+            </div>
+            
+            <div style="margin: 20px 0;">
+                <label style="color: #00ffff; display: block; margin-bottom: 5px;">Game Title:</label>
+                <input type="text" id="gameTitle" placeholder="Enter game title" 
+                       style="width: 100%; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid #00ffff; color: #fff; border-radius: 5px;">
+            </div>
+            
+            <button class="btn" onclick="generateEmbed()">Generate Embed Code</button>
+            
+            <div id="generatedEmbed" style="display: none; margin-top: 20px;">
+                <h3 style="color: #00ffff;">Generated Embed Code:</h3>
+                <div class="embed-code" id="embedOutput"></div>
+                <button class="btn" onclick="copyEmbed()">📋 Copy Code</button>
+                <button class="btn" onclick="previewEmbed()">👁️ Preview</button>
+            </div>
+        </div>
+
+        <div class="embed-section">
+            <h2 class="embed-title">📋 Embed Code Examples</h2>
+            
+            <h3 style="color: #ffff00;">Basic Iframe Embed:</h3>
+            <div class="embed-code">
+&lt;div class="game-container"&gt;
+    &lt;h3&gt;Game Title&lt;/h3&gt;
+    &lt;iframe src="your-game-url.html" 
+            width="800" 
+            height="600" 
+            frameborder="0" 
+            allowfullscreen
+            sandbox="allow-scripts allow-same-origin"&gt;
+    &lt;/iframe&gt;
+    &lt;p&gt;Game by: Developer Name&lt;/p&gt;
+&lt;/div&gt;
+            </div>
+            
+            <h3 style="color: #ffff00;">Responsive Embed:</h3>
+            <div class="embed-code">
+&lt;div class="responsive-game-container"&gt;
+    &lt;iframe src="your-game-url.html" 
+            style="width: 100%; height: 500px; border: none;"
+            allowfullscreen&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.responsive-game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+&lt;/style&gt;
+            </div>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ REMEMBER:</strong><br>
+            • Always get permission before embedding external games<br>
+            • Check Terms of Service of the source website<br>
+            • Provide proper attribution to game developers<br>
+            • Consider hosting your own games instead<br>
+            • Use official embed codes when available
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="../index.html" class="btn">Back to Main Site</a>
+        </div>
+    </div>
+
+    <script>
+        function generateEmbed() {
+            const url = document.getElementById('gameUrl').value;
+            const title = document.getElementById('gameTitle').value;
+            
+            if (!url) {
+                alert('Please enter a game URL');
+                return;
+            }
+            
+            const embedCode = `<!-- Game Embed: ${title || 'Untitled Game'} -->
+<div class="game-embed-container">
+    <h3 class="game-title">${title || 'Untitled Game'}</h3>
+    <div class="game-frame">
+        <iframe src="${url}" 
+                width="800" 
+                height="600" 
+                frameborder="0" 
+                allowfullscreen
+                sandbox="allow-scripts allow-same-origin allow-forms">
+            <p>Your browser does not support iframes.</p>
+        </iframe>
+    </div>
+    <p class="game-attribution">
+        <!-- Add proper attribution here -->
+        Game source: <a href="${url}" target="_blank">${url}</a>
+    </p>
+</div>
+
+<style>
+.game-embed-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ffff;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.game-title {
+    color: #00ffff;
+    margin-bottom: 15px;
+}
+
+.game-frame {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.game-frame iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+}
+
+.game-attribution {
+    color: #ccc;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .game-frame iframe {
+        height: 400px;
+    }
+}
+</style>`;
+
+            document.getElementById('embedOutput').textContent = embedCode;
+            document.getElementById('generatedEmbed').style.display = 'block';
+        }
+        
+        function copyEmbed() {
+            const code = document.getElementById('embedOutput').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Embed code copied to clipboard!');
+            });
+        }
+        
+        function previewEmbed() {
+            const url = document.getElementById('gameUrl').value;
+            const title = document.getElementById('gameTitle').value;
+            
+            if (!url) {
+                alert('Please enter a game URL first');
+                return;
+            }
+            
+            const previewWindow = window.open('', '_blank', 'width=900,height=700');
+            previewWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Game Preview: ${title}</title>
+                    <style>
+                        body { margin: 0; padding: 20px; background: #000; color: #fff; font-family: Arial, sans-serif; }
+                        .preview-container { text-align: center; }
+                        iframe { border: 2px solid #00ffff; border-radius: 10px; }
+                    </style>
+                </head>
+                <body>
+                    <div class="preview-container">
+                        <h2>Preview: ${title || 'Untitled Game'}</h2>
+                        <p style="color: #ffff00;">⚠️ This is a preview. Ensure you have permission to embed this content.</p>
+                        <iframe src="${url}" width="800" height="600" frameborder="0"></iframe>
+                    </div>
+                </body>
+                </html>
+            `);
+        }
+    </script>
+</body>
+</html>

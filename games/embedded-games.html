@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Games Hub - FlashBack Games</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .embedded-games-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+        }
+        
+        .page-title {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: 'Press Start 2P', cursive;
+        }
+        
+        .games-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: #00ffff;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px #00ffff;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: #00ffff;
+            box-shadow: 0 15px 35px rgba(0, 255, 255, 0.3);
+        }
+        
+        .game-thumbnail {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .game-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .external-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 0, 0.9);
+            color: #000;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+        
+        .game-info {
+            padding: 20px;
+        }
+        
+        .game-title {
+            color: #00ffff;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .game-description {
+            color: #cccccc;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .play-button {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .info-box {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid #00ffff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            color: #00ffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <div class="embedded-games-container">
+        <h1 class="page-title">Embedded Games Hub</h1>
+        
+        <div class="info-box">
+            <strong>Enhanced Game Embedding System</strong><br>
+            This page demonstrates our new game embedding capabilities. Games are categorized by their source type:
+            <ul style="margin-top: 10px;">
+                <li><strong>Web Games:</strong> Embedded directly in our site</li>
+                <li><strong>External Links:</strong> Open in new tabs for optimal experience</li>
+                <li><strong>Local Games:</strong> Hosted on our servers</li>
+            </ul>
+        </div>
+
+        <div class="games-section">
+            <h2 class="section-title">Embedded Web Games</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-thumbnail">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23faf8ef'/%3E%3Crect x='20' y='20' width='35' height='35' fill='%23eee4da' rx='3'/%3E%3Crect x='65' y='20' width='35' height='35' fill='%23ede0c8' rx='3'/%3E%3Crect x='110' y='20' width='35' height='35' fill='%23f2b179' rx='3'/%3E%3Crect x='155' y='20' width='35' height='35' fill='%23f59563' rx='3'/%3E%3Ctext x='37' y='42' font-family='Arial' font-size='12' fill='%23776e65'%3E2%3C/text%3E%3Ctext x='82' y='42' font-family='Arial' font-size='12' fill='%23776e65'%3E4%3C/text%3E%3Ctext x='127' y='42' font-family='Arial' font-size='12' fill='%23f9f6f2'%3E8%3C/text%3E%3Ctext x='170' y='42' font-family='Arial' font-size='10' fill='%23f9f6f2'%3E16%3C/text%3E%3C/svg%3E" alt="2048">
+                        <div class="external-indicator">Web Game</div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">2048</h3>
+                        <p class="game-description">Addictive number puzzle game - combine tiles to reach 2048</p>
+                        <a href="https://play2048.co/" target="_blank" class="play-button">Play Game</a>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-thumbnail">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f0f8ff'/%3E%3Ccircle cx='70' cy='70' r='25' fill='%234169e1' opacity='0.7'/%3E%3Ccircle cx='130' cy='70' r='25' fill='%23ff6347' opacity='0.7'/%3E%3Ccircle cx='100' cy='130' r='30' fill='%2332cd32' opacity='0.7'/%3E%3Ctext x='100' y='40' text-anchor='middle' font-family='Arial' font-size='14' fill='%23333'%3E+%3C/text%3E%3Ctext x='100' y='180' text-anchor='middle' font-family='Arial' font-size='12' fill='%23666'%3E=%3C/text%3E%3C/svg%3E" alt="Little Alchemy 2">
+                        <div class="external-indicator">Web Game</div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Little Alchemy 2</h3>
+                        <p class="game-description">Combine elements to create new items in this addictive crafting game</p>
+                        <a href="https://littlealchemy2.com/" target="_blank" class="play-button">Play Game</a>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-thumbnail">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f4e4bc'/%3E%3Ccircle cx='100' cy='100' r='60' fill='%23deb887'/%3E%3Ccircle cx='80' cy='80' r='8' fill='%23654321'/%3E%3Ccircle cx='120' cy='85' r='6' fill='%23654321'/%3E%3Ccircle cx='90' cy='110' r='7' fill='%23654321'/%3E%3Ccircle cx='115' cy='115' r='5' fill='%23654321'/%3E%3Ccircle cx='105' cy='130' r='6' fill='%23654321'/%3E%3Ctext x='100' y='180' text-anchor='middle' font-family='Arial' font-size='14' fill='%23333'%3EClick!%3C/text%3E%3C/svg%3E" alt="Cookie Clicker">
+                        <div class="external-indicator">Web Game</div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Cookie Clicker</h3>
+                        <p class="game-description">Addictive incremental game - click cookies to build your empire</p>
+                        <a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" class="play-button">Play Game</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="games-section">
+            <h2 class="section-title">External Game Links</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-thumbnail">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23333'/%3E%3Ccircle cx='50' cy='100' r='15' fill='%2300ff00'/%3E%3Ccircle cx='80' cy='100' r='15' fill='%2300ff00'/%3E%3Ccircle cx='110' cy='100' r='15' fill='%2300ff00'/%3E%3Ccircle cx='140' cy='100' r='18' fill='%2300ff00'/%3E%3Ccircle cx='135' cy='95' r='3' fill='%23fff'/%3E%3Ccircle cx='145' cy='95' r='3' fill='%23fff'/%3E%3Ccircle cx='60' cy='60' r='5' fill='%23ffff00'/%3E%3Ccircle cx='120' cy='140' r='5' fill='%23ff0000'/%3E%3Ccircle cx='160' cy='50' r='5' fill='%2300ffff'/%3E%3C/svg%3E" alt="Slither.io">
+                        <div class="external-indicator">External Link</div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Slither.io</h3>
+                        <p class="game-description">Multiplayer snake game - grow by eating pellets and other snakes</p>
+                        <a href="https://slither.io/" target="_blank" class="play-button">Play Game</a>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-thumbnail">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23222'/%3E%3Ccircle cx='100' cy='100' r='40' fill='%2300ff00' opacity='0.8'/%3E%3Ccircle cx='60' cy='60' r='15' fill='%23ff0000'/%3E%3Ccircle cx='140' cy='140' r='20' fill='%230080ff'/%3E%3Ccircle cx='160' cy='40' r='8' fill='%23ffff00'/%3E%3Ccircle cx='40' cy='160' r='12' fill='%23ff00ff'/%3E%3Ccircle cx='90' cy='90' r='3' fill='%23000'/%3E%3Ccircle cx='110' cy='90' r='3' fill='%23000'/%3E%3C/svg%3E" alt="Agar.io">
+                        <div class="external-indicator">External Link</div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Agar.io</h3>
+                        <p class="game-description">Multiplayer cell eating game - grow bigger by consuming smaller cells</p>
+                        <a href="https://agar.io/" target="_blank" class="play-button">Play Game</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="../index.html" class="play-button">Back to Main Site</a>
+        </div>
+    </div>
+</body>
+</html>

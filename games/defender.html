@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Defender</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            color: #00ffff;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .game-container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            width: 95vw;
+            height: 95vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-y: auto;
+        }
+        
+        h1 {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+            margin-bottom: 10px;
+        }
+        
+        canvas {
+            border: 2px solid #00ffff;
+            background: #000;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            max-width: 90vw;
+            max-height: 60vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        .score {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #ffff00;
+            text-shadow: 0 0 5px #ffff00;
+        }
+        
+        .controls {
+            margin-top: 15px;
+            color: #cccccc;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>🛡️ NEON DEFENDER</h1>
+        <div class="score">Score: <span id="score">0</span> | Lives: <span id="lives">3</span> | Wave: <span id="wave">1</span></div>
+        <canvas id="gameCanvas" width="500" height="280"></canvas>
+        <div class="controls">
+            ← → Move | ↑ ↓ Thrust | Space: Shoot<br>
+            Defend your base from enemy waves!
+        </div>
+        <button onclick="resetGame()">New Game</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreElement = document.getElementById('score');
+        const livesElement = document.getElementById('lives');
+        const waveElement = document.getElementById('wave');
+
+        let score = 0;
+        let lives = 3;
+        let wave = 1;
+        let gameRunning = true;
+        let keys = {};
+
+        const player = {
+            x: canvas.width / 2,
+            y: canvas.height - 100,
+            angle: 0,
+            velocity: { x: 0, y: 0 },
+            size: 8
+        };
+
+        let bullets = [];
+        let enemies = [];
+        let particles = [];
+        let base = { x: canvas.width / 2, y: canvas.height - 20, health: 100 };
+
+        function spawnEnemies() {
+            const count = 3 + wave;
+            for (let i = 0; i < count; i++) {
+                enemies.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * 100,
+                    velocity: {
+                        x: (Math.random() - 0.5) * 2,
+                        y: Math.random() * 2 + 1
+                    },
+                    size: 8 + Math.random() * 8,
+                    health: 20 + wave * 5,
+                    color: `hsl(${Math.random() * 60}, 70%, 50%)`
+                });
+            }
+        }
+
+        function createParticle(x, y, color) {
+            for (let i = 0; i < 8; i++) {
+                particles.push({
+                    x: x,
+                    y: y,
+                    velocity: {
+                        x: (Math.random() - 0.5) * 8,
+                        y: (Math.random() - 0.5) * 8
+                    },
+                    life: 30,
+                    color: color
+                });
+            }
+        }
+
+        function updatePlayer() {
+            // Rotation
+            if (keys['ArrowLeft']) player.angle -= 0.1;
+            if (keys['ArrowRight']) player.angle += 0.1;
+
+            // Thrust
+            if (keys['ArrowUp']) {
+                player.velocity.x += Math.cos(player.angle) * 0.3;
+                player.velocity.y += Math.sin(player.angle) * 0.3;
+            }
+            if (keys['ArrowDown']) {
+                player.velocity.x -= Math.cos(player.angle) * 0.2;
+                player.velocity.y -= Math.sin(player.angle) * 0.2;
+            }
+
+            // Apply friction
+            player.velocity.x *= 0.98;
+            player.velocity.y *= 0.98;
+
+            // Update position
+            player.x += player.velocity.x;
+            player.y += player.velocity.y;
+
+            // Keep on screen
+            player.x = Math.max(player.size, Math.min(canvas.width - player.size, player.x));
+            player.y = Math.max(player.size, Math.min(canvas.height - player.size, player.y));
+        }
+
+        function updateBullets() {
+            bullets.forEach((bullet, index) => {
+                bullet.x += bullet.velocity.x;
+                bullet.y += bullet.velocity.y;
+                bullet.life--;
+
+                if (bullet.life <= 0 || bullet.y < 0) {
+                    bullets.splice(index, 1);
+                }
+            });
+        }
+
+        function updateEnemies() {
+            enemies.forEach((enemy, index) => {
+                enemy.x += enemy.velocity.x;
+                enemy.y += enemy.velocity.y;
+
+                // Bounce off walls
+                if (enemy.x <= 0 || enemy.x >= canvas.width) {
+                    enemy.velocity.x *= -1;
+                }
+
+                // Attack base if close
+                if (enemy.y > canvas.height - 50) {
+                    base.health -= 0.5;
+                    createParticle(base.x, base.y, '#ff0000');
+                }
+
+                // Remove if off screen
+                if (enemy.y > canvas.height + 50) {
+                    enemies.splice(index, 1);
+                }
+            });
+        }
+
+        function updateParticles() {
+            particles.forEach((particle, index) => {
+                particle.x += particle.velocity.x;
+                particle.y += particle.velocity.y;
+                particle.life--;
+
+                if (particle.life <= 0) {
+                    particles.splice(index, 1);
+                }
+            });
+        }
+
+        function checkCollisions() {
+            // Bullet-enemy collisions
+            bullets.forEach((bullet, bulletIndex) => {
+                enemies.forEach((enemy, enemyIndex) => {
+                    const dx = bullet.x - enemy.x;
+                    const dy = bullet.y - enemy.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < enemy.size) {
+                        enemy.health -= 25;
+                        bullets.splice(bulletIndex, 1);
+
+                        if (enemy.health <= 0) {
+                            score += 50;
+                            scoreElement.textContent = score;
+                            createParticle(enemy.x, enemy.y, enemy.color);
+                            enemies.splice(enemyIndex, 1);
+                        }
+                    }
+                });
+            });
+
+            // Player-enemy collisions
+            enemies.forEach((enemy, index) => {
+                const dx = player.x - enemy.x;
+                const dy = player.y - enemy.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < player.size + enemy.size) {
+                    lives--;
+                    livesElement.textContent = lives;
+                    createParticle(player.x, player.y, '#00ffff');
+                    enemies.splice(index, 1);
+
+                    if (lives <= 0) {
+                        gameRunning = false;
+                        alert('Game Over!');
+                    }
+                }
+            });
+        }
+
+        function shoot() {
+            bullets.push({
+                x: player.x + Math.cos(player.angle) * player.size,
+                y: player.y + Math.sin(player.angle) * player.size,
+                velocity: {
+                    x: Math.cos(player.angle) * 8,
+                    y: Math.sin(player.angle) * 8
+                },
+                life: 60
+            });
+        }
+
+        function drawPlayer() {
+            ctx.save();
+            ctx.translate(player.x, player.y);
+            ctx.rotate(player.angle);
+
+            ctx.strokeStyle = '#00ffff';
+            ctx.shadowColor = '#00ffff';
+            ctx.shadowBlur = 10;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(player.size, 0);
+            ctx.lineTo(-player.size, -player.size / 2);
+            ctx.lineTo(-player.size / 2, 0);
+            ctx.lineTo(-player.size, player.size / 2);
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.restore();
+            ctx.shadowBlur = 0;
+        }
+
+        function drawBullets() {
+            ctx.fillStyle = '#ffff00';
+            ctx.shadowColor = '#ffff00';
+            ctx.shadowBlur = 5;
+            bullets.forEach(bullet => {
+                ctx.beginPath();
+                ctx.arc(bullet.x, bullet.y, 2, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            ctx.shadowBlur = 0;
+        }
+
+        function drawEnemies() {
+            enemies.forEach(enemy => {
+                ctx.fillStyle = enemy.color;
+                ctx.shadowColor = enemy.color;
+                ctx.shadowBlur = 8;
+                ctx.beginPath();
+                ctx.arc(enemy.x, enemy.y, enemy.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            ctx.shadowBlur = 0;
+        }
+
+        function drawParticles() {
+            particles.forEach(particle => {
+                const alpha = particle.life / 30;
+                ctx.fillStyle = particle.color.replace(')', `, ${alpha})`).replace('rgb', 'rgba');
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, 2, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        function drawBase() {
+            const healthPercent = base.health / 100;
+            ctx.fillStyle = healthPercent > 0.5 ? '#00ff00' : healthPercent > 0.25 ? '#ffff00' : '#ff0000';
+            ctx.shadowColor = ctx.fillStyle;
+            ctx.shadowBlur = 15;
+            ctx.fillRect(base.x - 50, base.y - 10, 100 * healthPercent, 20);
+            ctx.shadowBlur = 0;
+        }
+
+        function draw() {
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            drawBase();
+            drawPlayer();
+            drawBullets();
+            drawEnemies();
+            drawParticles();
+        }
+
+        function update() {
+            if (!gameRunning) return;
+
+            updatePlayer();
+            updateBullets();
+            updateEnemies();
+            updateParticles();
+            checkCollisions();
+
+            // Check wave completion
+            if (enemies.length === 0) {
+                wave++;
+                waveElement.textContent = wave;
+                spawnEnemies();
+            }
+
+            // Check base health
+            if (base.health <= 0) {
+                gameRunning = false;
+                alert('Base Destroyed! Game Over!');
+            }
+        }
+
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+
+        function resetGame() {
+            score = 0;
+            lives = 3;
+            wave = 1;
+            gameRunning = true;
+            bullets = [];
+            enemies = [];
+            particles = [];
+            base.health = 100;
+
+            player.x = canvas.width / 2;
+            player.y = canvas.height - 100;
+            player.velocity = { x: 0, y: 0 };
+            player.angle = 0;
+
+            scoreElement.textContent = score;
+            livesElement.textContent = lives;
+            waveElement.textContent = wave;
+
+            spawnEnemies();
+        }
+
+        // Controls
+        document.addEventListener('keydown', (e) => {
+            keys[e.code] = true;
+            if (e.code === 'Space') {
+                e.preventDefault();
+                shoot();
+            }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            keys[e.code] = false;
+        });
+
+        // Initialize
+        spawnEnemies();
+        gameLoop();
+    </script>
+</body>
+</html>
