@@ -1,0 +1,32 @@
+# Development files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+tmp_*
+temp_*
+
+# Build files (if any)
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Cache directories
+.cache/
+node_modules/
+
+# Deployment files (keep these commented out as they're needed)
+# netlify.toml
+# vercel.json

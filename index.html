@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashBack Games - Relive the Golden Era</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Experience classic browser games with modern HTML5 technology. Play Snake, Tetris, Pong, Asteroids, and more nostalgic games from the Flash era.">
+    <meta name="keywords" content="flash games, browser games, HTML5 games, retro games, arcade games, snake, tetris, pong, asteroids">
+    <meta name="author" content="FlashBack Games">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="FlashBack Games - Relive the Golden Era">
+    <meta property="og:description" content="Experience classic browser games with modern HTML5 technology. Play nostalgic games from the Flash era.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flashbackgames.netlify.app">
+    <meta property="og:image" content="https://flashbackgames.netlify.app/og-image.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FlashBack Games - Relive the Golden Era">
+    <meta name="twitter:description" content="Experience classic browser games with modern HTML5 technology.">
+    <meta name="twitter:image" content="https://flashbackgames.netlify.app/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>FlashBack Games</h1>
+                    <span class="tagline">Relive the Golden Era</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#games" class="nav-link">Games</a></li>
+                    <li><a href="#categories" class="nav-link">Categories</a></li>
+                    <li><a href="games/embedded-games.html" class="nav-link" target="_blank">Embedded Games</a></li>
+                    <li><a href="games/100-free-games.html" class="nav-link" target="_blank">100 Free Games</a></li>
+                    <li><a href="games/external-games.html" class="nav-link" target="_blank">More Games</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">Welcome to the Flash Era</h2>
+                <p class="hero-subtitle">Experience the magic of classic browser games in a modern interface</p>
+                <button class="cta-button" onclick="scrollToGames()">Start Playing</button>
+            </div>
+            <div class="hero-animation">
+                <div class="floating-elements">
+                    <div class="element element-1">🎮</div>
+                    <div class="element element-2">⭐</div>
+                    <div class="element element-3">🚀</div>
+                    <div class="element element-4">💎</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="games" class="games-section">
+            <div class="container">
+                <h2 class="section-title">Featured Games</h2>
+                <div class="games-grid" id="gamesGrid">
+                    <!-- Games will be populated by JavaScript -->
+                </div>
+                <div class="pagination-container" id="paginationContainer">
+                    <!-- Pagination will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="categories" class="categories-section">
+            <div class="container">
+                <h2 class="section-title">Game Categories</h2>
+                <div class="categories-grid">
+                    <div class="category-card" data-category="action">
+                        <div class="category-icon">⚔️</div>
+                        <h3>Action</h3>
+                        <p>Fast-paced adventures</p>
+                    </div>
+                    <div class="category-card" data-category="puzzle">
+                        <div class="category-icon">🧩</div>
+                        <h3>Puzzle</h3>
+                        <p>Mind-bending challenges</p>
+                    </div>
+                    <div class="category-card" data-category="arcade">
+                        <div class="category-icon">🕹️</div>
+                        <h3>Arcade</h3>
+                        <p>Classic arcade fun</p>
+                    </div>
+                    <div class="category-card" data-category="strategy">
+                        <div class="category-icon">🏰</div>
+                        <h3>Strategy</h3>
+                        <p>Think and conquer</p>
+                    </div>
+                    <div class="category-card" data-category="racing">
+                        <div class="category-icon">🏎️</div>
+                        <h3>Racing</h3>
+                        <p>Speed and adrenaline</p>
+                    </div>
+                    <div class="category-card" data-category="rpg">
+                        <div class="category-icon">🗡️</div>
+                        <h3>RPG</h3>
+                        <p>Epic adventures</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About FlashBack Games</h2>
+                <div class="about-content">
+                    <p>Remember the golden age of browser gaming? When Flash games ruled the internet and creativity knew no bounds? FlashBack Games brings back that magic with a curated collection of classic-style browser games, reimagined for modern devices.</p>
+                    <p>Our mission is to preserve the spirit of early 2000s gaming while providing a seamless, modern experience across all your devices.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 FlashBack Games. Bringing back the golden era of browser gaming.</p>
+        </div>
+    </footer>
+
+    <!-- Game Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="game-container">
+                <h3 id="gameTitle"></h3>
+                <div id="gameFrame"></div>
+                <div class="game-controls">
+                    <button class="control-btn" onclick="toggleFullscreen()">Fullscreen</button>
+                    <button class="control-btn" onclick="closeGame()">Close Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script-fixed.js"></script>
+</body>
+</html>

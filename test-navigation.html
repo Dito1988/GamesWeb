@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #222; color: #fff; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .pass { background: #004400; border: 1px solid #00ff00; }
+        .fail { background: #440000; border: 1px solid #ff0000; }
+        .info { background: #004444; border: 1px solid #00ffff; }
+    </style>
+</head>
+<body>
+    <h1>Navigation System Test</h1>
+    <div id="results"></div>
+
+    <script>
+        function addResult(message, type = 'info') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.textContent = message;
+            results.appendChild(div);
+        }
+
+        // Test if script.js loads
+        addResult('Testing navigation system...', 'info');
+
+        // Check if gamesData exists
+        setTimeout(() => {
+            if (typeof gamesData !== 'undefined') {
+                addResult(`✓ gamesData found with ${gamesData.length} games`, 'pass');
+            } else {
+                addResult('✗ gamesData not found - script.js may not be loading', 'fail');
+            }
+
+            // Check if DOM elements exist
+            const gamesGrid = document.getElementById('gamesGrid');
+            if (gamesGrid) {
+                addResult('✓ gamesGrid element found', 'pass');
+            } else {
+                addResult('✗ gamesGrid element not found', 'fail');
+            }
+
+            const categoryCards = document.querySelectorAll('.category-card');
+            if (categoryCards.length > 0) {
+                addResult(`✓ Found ${categoryCards.length} category cards`, 'pass');
+            } else {
+                addResult('✗ No category cards found', 'fail');
+            }
+
+            const hamburger = document.querySelector('.hamburger');
+            if (hamburger) {
+                addResult('✓ Hamburger menu found', 'pass');
+            } else {
+                addResult('✗ Hamburger menu not found', 'fail');
+            }
+
+            // Check if functions exist
+            if (typeof renderGames === 'function') {
+                addResult('✓ renderGames function found', 'pass');
+            } else {
+                addResult('✗ renderGames function not found', 'fail');
+            }
+
+            if (typeof setupEventListeners === 'function') {
+                addResult('✓ setupEventListeners function found', 'pass');
+            } else {
+                addResult('✗ setupEventListeners function not found', 'fail');
+            }
+        }, 100);
+    </script>
+
+    <!-- Include the same scripts as your main page -->
+    <script src="script.js"></script>
+</body>
+</html>
